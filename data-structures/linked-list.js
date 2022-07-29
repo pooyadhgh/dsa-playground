@@ -78,6 +78,21 @@ class LinkedList {
     }
   }
 
+  deleteHead() {
+    if (!this.head) return;
+
+    const deletedItem = this.head;
+
+    if (this.head.next) {
+      this.head = this.head.next;
+    } else {
+      this.head = null;
+      this.tale = null;
+    }
+
+    return deletedItem;
+  }
+
   toArray() {
     const elemenets = [];
     let currentElement = this.head;
@@ -100,5 +115,7 @@ linkedList.prepend(1);
 linkedList.delete(1);
 linkedList.insertAfter('z', 'a');
 
-console.log('toArray', linkedList.toArray());
-console.log('find', linkedList.find('a'));
+// console.log('toArray', linkedList.toArray());
+// console.log('find', linkedList.find('a'));
+
+module.exports = LinkedList;
